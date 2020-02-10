@@ -1,6 +1,446 @@
 body{
-	font-size:24px;
+	font-size:16px;
 	color:#fff;
 	background-color:#61122f;
 	font-family: 'Oxygen', sans-serif;;
 }
+
+#header-nav{
+	background-color: #f6b319;
+	border-radius: 0;
+	border: 0;
+}
+#logo-img{
+	background: url('../images/logo.png') no-repeat;
+	width:112px;
+	height:150px;
+	margin:10px 15px 10px 0;
+
+}
+
+.navbar-brand h1{
+	font-family: 'lora', serif;
+	color: #557c3e;
+	font-size:1.4em;
+	text-transform:uppercase;
+	font-weight:bold;
+	text-shadow: 1px 1px 1px #222;
+	margin-top: 0;
+	margin-bottom: 0;
+	line-height: .75;
+	text-align: center;
+	line-height: 150%;
+	
+
+	/*font-size:14px;*/
+}
+.navbar-brand {
+	/*background-color: black;*/
+	width:auto;
+	height:auto;
+	/*margin-top: 5px;*/
+	/*margin-left: 40px;*/
+
+}
+.navbar-brand a:hover, .navbar-brand a:focus{
+	text-decoration: none;
+}
+#nav-list{
+	/*padding: 0;
+    margin: 0;*/
+	/*margin-left: 120px;
+	margin-top: -70px;
+*/
+	/*margin-left: auto;*/
+	/*background-color: black;*/
+	/*text-align: center;*/
+}
+#nav-list a{
+
+	color:#951c49;
+	text-align:center;
+	font-weight: bold;
+	/*padding: 0;*/
+    
+	/*margin-top: 60px;
+	margin-right: 50%;*/
+}
+#nav-list a:hover{
+	background: #E7E7E7;
+	/*padding: 0;*/
+    margin: 0;
+
+
+
+}
+#nav-list a span{
+	font-size:1.8em;
+}
+#phone{
+	margin-top:5px;
+}
+#phone a{
+	text-align: right;
+	padding-bottom:0;
+}
+#phone div{
+	color: #557c3e;
+	text-align: right;
+	padding-right: 15px;
+}
+
+.navbar-header button.navbar-toggle, .navbar-header .icon-bar{
+	border:1px solid #61122f;
+}
+.navbar-header button.navbar-toggle{
+	clear: both;
+	margin-top: -45px;
+
+/*}
+.navbar-header{
+
+	padding-left: 40px;
+}
+}*/
+
+/*.container{
+	margin-top:30px;
+	padding:0;
+	box-shadow: 0 0 50px #3f0c1f;
+	border:2px solid  #3f0c1f;*/
+}
+
+.panel-footer{
+	margin-top:30px;
+	padding-top:35px;
+	padding-bottom: 30px;
+	background-color: #222;
+	border-top: 0;
+}
+.panel-footer div.row{
+	margin-bottom: 35px;
+}
+#hours, #address{
+	line-height: 2;
+}
+#hours > span, #address >span{
+	font-size: 1.3em;
+}
+
+
+.container .jumbotron{
+	box-shadow: 0 0 50px #3f0c1f;
+	border:2px solid  #3f0c1f;
+}
+
+#welcome{
+	background-color: brown;
+	margin-bottom: 20px;
+	margin-left: auto;
+	margin-right: auto;
+
+}
+#welcome p{
+	font-family: "Times New Roman";
+	text-align: center;
+
+}
+#welcome p:nth-child(1){
+	font-weight: bold;
+	text-align: center;
+	font-family: "Times New Roman"
+}
+
+#form-map{
+	background-color: #CD5C5C;
+	margin-top: 40px;
+	margin-right: 5px;
+	margin-left: 3px;
+	padding-left: 10px;
+	color: black;
+	font-family: "Times New Roman";
+	font-weight: bold;
+	/*position: relative;
+	overflow:hidden;*/
+}
+#map-title{
+	height:450px;
+	width:100%;
+	/*margin-right: -10px;*/
+	/*margin-top: 10px;*/
+	/*padding: 0;*/
+	position:relative;
+	border:2px solid #3f0c1f;
+	border-top: 0px;
+
+}
+.
+span{
+	margin-left: -10px;
+}
+#map-title span{
+	position: absolute;
+	bottom: 0;
+	right:0;
+	width:100%;
+	text-align: center;
+	font-size:1.6;
+	background-color: #000;
+	color: #fff;
+	opacity: .8;
+}
+.map-responsive{
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+
+}
+.frame{
+	margin-right:-10px;
+}
+
+.affix {
+    top: 0;
+    width: 100%;
+    z-index: 9999 !important;
+  }
+.panel-heading, .panel-body{
+	height: 100%;
+	width:100%;
+	/*margin-top:0;
+	padding-top:35px;
+	padding-bottom: 30px;*/
+	background-color: #222;
+	border-top: 0;
+}
+#church{
+	margin-bottom: 20px;
+	text-align: center;
+}
+.panel-body img:nth-child(1){
+	margin-top: 30px;
+	margin-bottom: 20px;
+	max-width: 100%;
+	height: auto;
+}
+.panel-body p, .panel-body li{
+	font-size: 18px;
+	line-height: 200%;
+	text-align: justify;
+}
+
+
+
+
+/*.map-responsive iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;}*/
+/*#form.input {
+	height:250px;
+	width: 100%;
+	margin-right: 0;
+}*/
+
+
+@media(min-width: 1200px){
+#nav-list{
+	margin-left: 120px;
+	margin-top: -70px;
+	}
+
+.container .jumbotron{
+	background: url('../images/St.Arsema.PNG') no-repeat;
+	height:675px;
+	/*margin:5px 5px 5px 0;*/
+	background-size: 100%;
+	margin-top:30px;
+	padding:0;
+	/*margin-left: 10px;*/
+	}
+.map-responsive iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
+
+.carousel-inner .carousel-item-right.active,
+.carousel-inner .carousel-item-next{
+	transform: translateX(33%);
+
+}
+
+.carousel-inner .carousel-item-right.active,
+.carousel-inner .carousel-item-next{
+	transform: translateX(-33%);
+
+}
+/*#carousel {
+    width: 1100px;
+  }*/
+
+}
+
+@media(min-width: 992px) and (max-width:1199px){
+#nav-list{
+	margin-left: 120px;
+	margin-top: -70px;
+	}
+
+.container .jumbotron{
+	background: url('../images/St.Arsema.PNG') no-repeat;
+	height:558px;
+	/*margin:5px 5px 5px 0;*/
+	background-size: 100%;
+	margin-top:30px;
+	padding:0;
+	/*margin-left: 10px;*/
+	}
+.navbar-brand {
+	margin-left: 80px;
+}
+.map-responsive iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
+.carousel-inner .carousel-item-right.active,
+.carousel-inner .carousel-item-next{
+	transform: translateX(33%);
+
+}
+
+.carousel-inner .carousel-item-right.active,
+.carousel-inner .carousel-item-next{
+	transform: translateX(-33%);
+
+}
+
+}
+
+@media(min-width: 768px) and (max-width: 991px){
+#nav-list{
+	margin-left: 120px;
+	margin-top: -70px;
+	}
+.container .jumbotron{
+	background: url('../images/St.Arsema.PNG') no-repeat;
+	height:432px;
+	/*margin:5px 5px 5px 0;*/
+	background-size: 100%;
+	margin-top:30px;
+	padding:0;
+	/*margin-left: 10px;*/
+	}
+
+
+
+/*.navbar-header button.navbar-toggle{
+	margin-right: 10px;
+	}*/
+.navbar-brand {
+	margin-left: 80px;
+	/*padding-top:5px;
+	font-size:3vw;*/
+}
+.map-responsive iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
+.carousel-inner .carousel-item-right.active,
+.carousel-inner .carousel-item-next{
+	transform: translateX(50%);
+
+}
+
+.carousel-inner .carousel-item-right.active,
+.carousel-inner .carousel-item-next{
+	transform: translateX(-50%);
+
+}
+
+
+}
+
+
+
+
+@media (max-width: 767px){
+#logo-img{
+	background: url('../images/logo.png') no-repeat;
+	width:70px;
+	height:100px;
+	margin:5px 5px 5px 0;
+	background-size: 100%;
+	margin-left: 10px;
+	}
+.carousel-inner .carousel-item-right.active,
+.carousel-inner .carousel-item-next{
+	transform: translateX(50%);
+
+}
+
+.carousel-inner .carousel-item-right.active,
+.carousel-inner .carousel-item-next{
+	transform: translateX(-50%);
+
+}
+
+
+/*.jumbotron{
+	background: url('../images/St.Arsema.PNG') no-repeat;
+	height:432px;
+	/*margin:5px 5px 5px 0;*/
+	/*background-size: 100%;
+	margin-left: 10px;
+	}*/
+
+/*.navbar-brand{
+	padding-top: 10px;
+	height:80px;
+}*/
+.navbar-brand h1{
+	padding-top:5px;
+	font-size:2.5vw;
+
+}
+.navbar-header button.navbar-toggle{
+	/*margin-right: 20px;*/
+
+
+}
+
+.container .jumbotron{
+	margin-top:30px;
+	padding:0;
+	
+}
+#map-title{
+	margin-top: 20px;
+
+}
+
+.panel-heading h2{
+	font-size: 4.5vw;
+}
+
+
+/*.navbar-brand p{
+	font-size: .6em;
+	margin-top:12px;
+}
+.navbar-brand p img{
+	height: 20px;
+}
+}
+
