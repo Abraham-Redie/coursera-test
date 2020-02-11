@@ -229,7 +229,23 @@ span{
 	line-height: 200%;
 	text-align: justify;
 }
-
+.carousel{
+	height: 500px;
+	margin-bottom:60px;
+}
+.carousel-caption{
+	z-index:10;
+}
+.carousel .item{
+	height: 500px;
+}
+>carousel-inner > .tem > img{
+	position: absolute;
+	top:0;
+	left:0;
+	min-width:100%;
+	height: 500px;
+}
 
 
 
@@ -384,20 +400,20 @@ span{
 	background-size: 100%;
 	margin-left: 10px;
 	}
-.carousel-inner .carousel-item-right.active,
+/*.carousel-inner .carousel-item-right.active,
 .carousel-inner .carousel-item-next{
 	transform: translateX(50%);
 	 visibility: visible;
 
 }
 
-.carousel-inner .carousel-item-lrft.active,
+.carousel-inner .carousel-item-left.active,
 .carousel-inner .carousel-item-next{
 	transform: translateX(-50%);
 	 visibility: visible;
 
 }
-
+*/
 
 /*.jumbotron{
 	background: url('../images/St.Arsema.PNG') no-repeat;
