@@ -1,0 +1,118 @@
+---
+title: "Abraham_Redie"
+output:
+  html_notebook: default
+  toc: TRUE
+---
+
+### Zonal Statistics Using R Language.
+
+#### This function will excute the zonal statistics to extract the mean value using the census block. Once we provide the input, the function will set the same coordinate system, clip the raster, extract a zonal statisticst table, rename the  colum table and join to the original table.
+
+```{r}
+ZonalStat<- function (zone.in, raster.in, shp.out,lyr.name){
+  require(raster)
+  require(plyr)
+
+  grids <- list.files(raster.in,pattern = "*.tif$")
+  
+  #create a raster stack from the input raster files 
+  S.Raster <- raster::stack(paste0(grids))
+  plot(S.Raster)
+  
+  # Load zone shapefile
+  require(rgdal)
+  shp <- readOGR(dsn = zone.in, layer = lyr.name)
+
+  
+  # # Project 'zone' shapefile into the same coordinate system than the input raster
+  shp <- spTransform(shp, crs(S.Raster))
+  
+  # Add ID field to Shapefile
+  shp@data$ID<-c(1:length(shp@data[,1]))
+  
+  # Crop raster to 'zone' shapefile extent
+  grids <- crop(S.Raster, extent(shp))	
+  
+  # Zonal stats
+  Ext.val <- extract(S.Raster, shp, fun = "mean",na.rm = TRUE, df = TRUE)
+  Ext.tbl <- data.frame(Ext.val)
+  str(Ext.tbl)
+  Year <- c(2008:2014)
+  Month <- "Jun"
+  Periods <- paste(Month,Year,  sep = "_")
+  colnames(Ext.tbl) <- c("ID",Periods)
+  write.csv(Ext.tbl,"Ext.tbl.csv")
+  print(Ext.tbl)
+  
+  # Merge data in the shapefile and write it
+  shp@data <- plyr::join(shp@data, Ext.tbl, by="ID")
+  
+  # this section is giving me a warning, I tried to suppress it, However, from the reading I learned that it is not a  good practice to suppress warnings. as far as its effect is concerned, I checked the shapefile in ArcGIS, it is fine.
+  if (is.null(shp.out)){
+    return(shp)
+  }else{
+    (writeOGR(shp, shp.out, layer= sub("^([^.]*).*", "\\1", basename(lyr.name)), driver="ESRI Shapefile", overwrite_layer = TRUE))
+  }
+  
+
+
+}
+
+```
+
+#### This section calls the function. In this case, we need to provide four inputs: the inputfolder, the raster layers, the output folder and the layer.
+
+```{r}
+# Input folder with Shapefile (INPUT)
+zone.in <- "C:\\Users\\gis\\Downloads\\New_Orlean"
+
+# Shapefile with zone (INPUT)
+lyr.name <- "NYC_shapefile"
+
+# Raster from which the stats have to be computed (INPUT)
+raster.in <- "E:\\R_class\\Stati_final"
+
+# Shapefile with zone + Zonal Stat (OUTPUT)
+shp.out <- "C:\\Users\\gis\\Downloads\\New_Orlean\\zone_with_Zstat" 
+
+ 
+ZonalStat(zone.in, raster.in, shp.out, lyr.name)
+```
+
+#### This section displays the Boxplot. This enable us to study the distributional characteristics of a group of scores as well as the level of the scores. In this case, the Median, Inter-quartile range, upper quartile, lower quartile, and whiskers fo the temperature will be identified.
+```{r}
+Graph <- function(x){
+  require(ggplot2)
+  require(reshape2)
+  
+  #reading the zonal statistical table and removing the first column which is not iportant
+  ZS.file <- read.csv(x)
+  ZS.file$X <- NULL
+  
+  # melt the data to a long format
+  df2 <- melt(data = ZS.file, id.vars = "ID")
+  # plot, using the aesthetics argument 'colour'
+  p <- ggplot(data = df2, aes(x = ID, y = value, colour = variable)) + ggtitle("Temperature Fluctuation in NYC") + xlab("Census Block ID") + ylab("Temperature") + geom_boxplot()
+  
+  p + theme(
+  plot.title = element_text(hjust = 0.5,color="red", size=16, face="bold.italic"), axis.title.x = element_text(color="blue", size=16, face="bold"),
+  axis.title.y = element_text(color="#993333", size=16, face="bold"))
+}
+###############################################################################
+
+Graph("Ext.tbl.csv")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
